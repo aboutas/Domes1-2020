@@ -7,69 +7,52 @@ import java.util.Scanner;
 
 public class Menu {
 
-
+    private static StandardInputRead strInputRead= new StandardInputRead();;
+    private static boolean isNotX = true;
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String myString = null;
-        myString = scanner.next();
-        scanner.close();
 
         ListIterator list = ParseTxt.ToList().listIterator();
-        while (myString !="x") {
-            switch (myString) {
-                case "^":    //Go to the first line
+        while (isNotX) {
+            char input = strInputRead.readString("Enter a character : ").charAt(0);
+            switch (input) {
+                case '^':    //Go to the first line
                     System.out.println(ParseTxt.ToList().get(0));
-                    break;
-                case "$":    //Go to the last line
+                case '$':    //Go to the last line
                     String last = ParseTxt.ToList().get(ParseTxt.ToList().size() - 2);
-                    //System.out.println(last);
-                    break;
-                case "-":    //Go up one line
+                case '-':    //Go up one line
                     while (list.hasPrevious()) {
                         String prev = (String) list.previous();
-                      //  System.out.println(prev);
                     }
                     break;
-                case "+":    //Go down one line
+                case '+':    //Go down one line
                     if (list.hasNext()) {
                         String next = String.valueOf(list.next());
                         System.out.println(next);
                         break;
                     }
-
-                case "a":    //Add new line after current line (the user is asked to type in the text for the new line)
-
+                case 'a':    //Add new line after current line (the user is asked to type in the text for the new line)
                     break;
-                case "t":    //Add new line before current line (the user is asked to type in the text for the new line)
-
+                case 'x':    //Add new line after current line (the user is asked to type in the text for the new line)
+                    isNotX=false;
                     break;
-                case "d":    //Delete current line
-
+                case 't':    //Add new line before current line (the user is asked to type in the text for the new line)
                     break;
-                case "l":    //Print all lines
-
+                case 'd':    //Delete current line
                     break;
-                case "n":    //Toggle whether line numbers are displayed when printing all lines (l command)
-
+                case 'l':    //Print all lines
                     break;
-                case "p":    //Print current line
-
+                case 'n':    //Toggle whether line numbers are displayed when printing all lines (l command)
                     break;
-                case "q":    //Quit without save
-
+                case 'p':    //Print current line
                     break;
-                case "w":    //Write file to disk
-
+                case 'q':    //Quit without save
                     break;
-                case "x":    //Exit with save
-
+                case 'w':    //Write file to disk
                     break;
-                case "=":    //Print current line number
-
+                case '=':    //Print current line number
                     break;
-                case "#":    //Print number of lines and characters
-
+                case '#':    //Print number of lines and characters
                     break;
             }
         }

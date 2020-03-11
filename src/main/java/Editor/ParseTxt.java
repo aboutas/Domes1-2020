@@ -11,7 +11,7 @@ public class ParseTxt {
         ArrayList MyData = new ArrayList<>();
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("/home/t/IdeaProjects/rafosDomes/COMP202notes_2/labdesc1_2275/testfile_x2.txt"));
+            reader = new BufferedReader(new FileReader("testfile1.txt"));
             String line = reader.readLine();
             Integer count = 1;
             MyData.add(line);
